@@ -20,3 +20,8 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+use App\Http\Controllers\NoteController;
+Route::controller(NoteController::class)->prefix('note')->group(function() {
+    Route::get('mypage', 'home');
+});
